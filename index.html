@@ -176,9 +176,18 @@ run_first_time.bat</code></pre>
                 </div>
                 <div class="sandbox">
                     <div class="sandbox-controls">
-                        <label>初始资金 <input id="capital" type="range" min="10" max="200" value="100"></label>
-                        <label>风险偏好 <input id="risk" type="range" min="1" max="10" value="5"></label>
-                        <label>因子权重 <input id="factor" type="range" min="1" max="10" value="6"></label>
+                        <label>
+                            <span class="control-row"><span>初始资金</span><strong id="capitalValue">100 万</strong></span>
+                            <input id="capital" type="range" min="10" max="200" value="100">
+                        </label>
+                        <label>
+                            <span class="control-row"><span>风险偏好</span><strong id="riskValue">5 / 10</strong></span>
+                            <input id="risk" type="range" min="1" max="10" value="5">
+                        </label>
+                        <label>
+                            <span class="control-row"><span>因子权重</span><strong id="factorValue">6 / 10</strong></span>
+                            <input id="factor" type="range" min="1" max="10" value="6">
+                        </label>
                     </div>
                     <div class="sandbox-result">
                         <div><span>模拟收益</span><strong id="returnMetric">18.4%</strong></div>

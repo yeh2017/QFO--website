@@ -47,6 +47,9 @@ function initSandbox() {
     const returnMetric = document.getElementById("returnMetric");
     const drawdownMetric = document.getElementById("drawdownMetric");
     const sharpeMetric = document.getElementById("sharpeMetric");
+    const capitalValue = document.getElementById("capitalValue");
+    const riskValue = document.getElementById("riskValue");
+    const factorValue = document.getElementById("factorValue");
 
     if (!capital || !risk || !factor) return;
 
@@ -58,6 +61,9 @@ function initSandbox() {
         const drawdown = 3 + r * 0.72 + Math.max(0, 7 - f) * 0.35;
         const sharpe = Math.max(0.4, expectedReturn / (drawdown * 2.1));
 
+        capitalValue.textContent = `${c} 万`;
+        riskValue.textContent = `${r} / 10`;
+        factorValue.textContent = `${f} / 10`;
         returnMetric.textContent = `${expectedReturn.toFixed(1)}%`;
         drawdownMetric.textContent = `${drawdown.toFixed(1)}%`;
         sharpeMetric.textContent = sharpe.toFixed(2);

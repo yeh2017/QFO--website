@@ -445,6 +445,23 @@ tr:last-child td {
     font-weight: 700;
 }
 
+.control-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.control-row strong {
+    min-width: 72px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--surface-soft);
+    color: var(--accent);
+    font-size: 13px;
+    text-align: center;
+}
+
 .sandbox-result {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
