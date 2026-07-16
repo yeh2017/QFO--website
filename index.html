@@ -3,458 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="QFO量化回测平台教学站，串联数据中台、智能选股、因子诊断、策略回测、风险管理和新闻事件研究。">
-    <title>QFO量化回测平台</title>
+    <meta name="description" content="QFO量化回测平台教学网站，面向 A股量化回测、股票量化回测、智能选股、因子研究、策略回测和组合风控。">
+    <title>QFO量化回测平台教学网站</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="brand-mark">QFO</div>
-                <div>
-                    <h1>QFO量化回测平台</h1>
-                    <p>设置先行，回测验证</p>
-                </div>
-            </div>
+    <header class="site-header">
+        <a class="brand" href="#top" aria-label="QFO 首页">
+            <span class="brand-mark">QFO</span>
+            <span>
+                <strong>QFO量化回测平台</strong>
+                <small>教学网站</small>
+            </span>
+        </a>
+        <nav class="top-nav" aria-label="顶部导航">
+            <a href="#preview">产品预览</a>
+            <a href="#quickstart">快速开始</a>
+            <a href="#modules">功能模块</a>
+            <a href="#faq">常见问题</a>
+            <a href="https://github.com/yeh2017/QFO-Quant-Platform" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+    </header>
 
-            <nav class="sidebar-menu" aria-label="主导航">
-                <a href="#intro" class="menu-item active" data-target="intro" aria-current="page"><span class="menu-icon">▦</span><span>平台总览</span></a>
-                <div class="menu-group-title">基础链路</div>
-                <a href="#settings" class="menu-item" data-target="settings"><span class="menu-icon">◎</span><span>设置与启动</span></a>
-                <a href="#data" class="menu-item" data-target="data"><span class="menu-icon">◎</span><span>数据中台</span></a>
-                <a href="#screener" class="menu-item" data-target="screener"><span class="menu-icon">⌕</span><span>智能选股</span></a>
-                <a href="#factor" class="menu-item" data-target="factor"><span class="menu-icon">◇</span><span>因子模块</span></a>
-                <a href="#backtest" class="menu-item" data-target="backtest"><span class="menu-icon">↗</span><span>策略回测</span></a>
-                <div class="menu-group-title">决策闭环</div>
-                <a href="#portfolio" class="menu-item" data-target="portfolio"><span class="menu-icon">◉</span><span>组合与风控</span></a>
-                <a href="#visual" class="menu-item" data-target="visual"><span class="menu-icon">⌁</span><span>可视化分析</span></a>
-                <a href="#news" class="menu-item" data-target="news"><span class="menu-icon">☷</span><span>新闻中心</span></a>
-                <a href="#practice" class="menu-item" data-target="practice"><span class="menu-icon">▶</span><span>在线实战</span></a>
-            </nav>
-
-            <div class="sidebar-footer">
-                <span>Static learning site</span>
-                <strong>v4.0</strong>
-            </div>
+    <div class="layout" id="top">
+        <aside class="side-nav" aria-label="文档目录">
+            <p class="side-title">学习目录</p>
+            <a href="#overview">平台总览</a>
+            <a href="#quickstart">快速开始</a>
+            <a href="#workflow">学习路径</a>
+            <a href="#modules">功能模块</a>
+            <a href="#preview">产品预览</a>
+            <a href="#config">配置说明</a>
+            <a href="#sandbox">实战沙盒</a>
+            <a href="#faq">常见问题</a>
+            <a href="#notice">免责声明</a>
         </aside>
 
-        <main class="main-content">
-            <section id="intro" class="content-section active">
-                <div class="hero">
-                    <div class="hero-copy">
-                        <div class="eyebrow">QFO Quant Workflow</div>
-                        <h2>把量化研究拆成一条能学习、能复盘、能验证的路径</h2>
-                        <p>QFO量化回测平台不是只讲概念的教程站，而是围绕真实项目模块，把数据同步、跨资产筛选、因子诊断、策略回测、风险管理和新闻事件串成一个能直接试跑的学习闭环。</p>
-                        <div class="hero-highlights">
-                            <span>本地数据仓库</span>
-                            <span>在线回测沙盒</span>
-                            <span>风险与新闻闭环</span>
-                        </div>
-                        <div class="hero-actions">
-                            <a class="btn-primary" href="#practice" data-target="practice">进入实战沙盒</a>
-                            <a class="btn-secondary" href="#settings" data-target="settings">查看学习路径</a>
-                            <a class="btn-secondary" href="https://github.com/yeh2017/QFO" target="_blank" rel="noopener noreferrer">查看 GitHub 源码</a>
-                        </div>
-                    </div>
-                    <div class="hero-panel">
-                        <img src="assets/frames/scene_04_last.webp" alt="QFO 数据中台界面" decoding="async">
+        <main class="content">
+            <section class="hero" id="overview">
+                <div class="hero-copy">
+                    <p class="eyebrow">QFO Quant Platform Website</p>
+                    <h1>把 A 股量化回测拆成一条能学习、能复盘、能验证的路径</h1>
+                    <p class="lead">QFO 教学网站围绕真实项目模块，串联数据同步、智能选股、因子诊断、策略回测、组合风控、可视化分析和新闻情绪研究，适合用来快速理解 QFO量化回测平台的完整工作流。</p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="#quickstart">查看快速开始</a>
+                        <a class="button" href="#preview">查看产品预览</a>
+                        <a class="button" href="https://github.com/yeh2017/QFO-Quant-Platform" target="_blank" rel="noopener noreferrer">主项目源码</a>
                     </div>
                 </div>
-
-                <div class="module-grid">
-                    <a class="module-card" href="#settings" data-target="settings"><h3>设置与启动</h3><p>先完成密钥、运行环境和功能开关配置。</p></a>
-                    <a class="module-card" href="#data" data-target="data"><h3>数据中台</h3><p>先建立稳定、可复用的本地数据底座。</p></a>
-                    <a class="module-card" href="#screener" data-target="screener"><h3>智能选股</h3><p>股票、ETF、可转债统一进入筛选流程。</p></a>
-                    <a class="module-card" href="#factor" data-target="factor"><h3>因子模块</h3><p>用因子解释机会，不只看价格涨跌。</p></a>
-                    <a class="module-card" href="#backtest" data-target="backtest"><h3>策略回测</h3><p>把研究假设放进历史数据里验证。</p></a>
-                    <a class="module-card" href="#portfolio" data-target="portfolio"><h3>组合与风控</h3><p>用组合优化和风险指标约束收益波动。</p></a>
-                    <a class="module-card" href="#visual" data-target="visual"><h3>可视化分析</h3><p>用 K 线、指标和图表辅助复盘判断。</p></a>
-                    <a class="module-card" href="#news" data-target="news"><h3>新闻中心</h3><p>用 LLM 把消息面转成可验证的事件信号。</p></a>
-                    <a class="module-card" href="#practice" data-target="practice"><h3>在线实战</h3><p>直接调参数，观察模拟回测指标变化。</p></a>
-                </div>
-
-                <div class="section-card">
-                    <h3>学习方式</h3>
-                    <div class="learning-path">
-                        <div><strong>看模块</strong><span>先理解每个功能解决什么问题。</span></div>
-                        <div><strong>看流程</strong><span>再理解数据如何流向下一步。</span></div>
-                        <div><strong>看代码</strong><span>最后回到项目文件，定位实现入口。</span></div>
-                        <div><strong>做实战</strong><span>用沙盒模拟策略表现，建立直觉。</span></div>
-                    </div>
-                </div>
-                <div class="intro-info-grid">
-                    <div class="section-card">
-                        <h3>学习前准备</h3>
-                        <ul class="stark-list">
-                            <li>了解股票、ETF、可转债等基础资产概念。</li>
-                            <li>完整运行主应用时，需要 Python、Node.js 和可用数据源 Token。</li>
-                            <li>只浏览本教学站时，不需要启动后端服务。</li>
-                        </ul>
-                    </div>
-                    <div class="section-card">
-                        <h3>常见问题</h3>
-                        <ul class="stark-list">
-                            <li>沙盒结果只用于教学演示，不代表正式交易收益。</li>
-                            <li>首次数据同步较慢，通常和数据源限流或全量初始化有关。</li>
-                            <li>新闻与 LLM 模块需要先配置对应 API Key 才能稳定运行。</li>
-                        </ul>
-                    </div>
+                <div class="hero-media">
+                    <img src="assets/frames/scene_04_last.webp" alt="QFO 数据中台界面">
                 </div>
             </section>
 
-            <section id="settings" class="content-section">
-                <header class="section-heading">
-                    <div>
-                        <span class="eyebrow">Module 00</span>
-                        <h2 class="section-title">设置与启动：所有模块运行前的第一步</h2>
-                    </div>
-                    <span class="module-tag">Token / API Key / Runtime</span>
-                </header>
-
-                <div class="lesson-layout">
-                    <div class="lesson-main">
-                        <div class="section-card">
-                            <h3>为什么放在最前面</h3>
-                            <p>设置模块是 QFO 的运行前置条件。数据同步、新闻检索、LLM 情绪分析、推送通知都依赖这里的密钥和开关；没有完成设置，后续模块即使界面能打开，也无法获得稳定数据和分析结果。</p>
-                        </div>
-                        <div class="tutorial-card">
-                            <h3>建议操作路径</h3>
-                            <ol class="stark-list">
-                                <li>先启动后端与前端，确认平台可以正常访问。</li>
-                                <li>打开设置入口，填入 Tushare Token，这是数据中台的必填项。</li>
-                                <li>按需填入 Tavily API Key、LLM Key 和推送配置，用于新闻检索、新闻理解与通知。</li>
-                                <li>保存配置后，再进入数据中台执行同步，最后进入选股、新闻和回测模块。</li>
-                            </ol>
-                        </div>
-                        <div class="flow-row">
-                            <span>启动项目</span><span>填写密钥</span><span>保存配置</span><span>同步数据</span><span>进入研究</span>
-                        </div>
-                    </div>
-                    <aside class="lesson-side">
-                        <div class="side-card"><h4>关键文件</h4><code>backend/settings.py</code><code>backend/routers/system_config.py</code><code>frontend/src/components/Settings/SettingsModal.jsx</code></div>
-                        <div class="side-card"><h4>学习重点</h4><p>设置不是附属功能，而是数据、新闻、LLM 和推送能力的统一入口。</p></div>
-                    </aside>
+            <section class="section" id="quickstart">
+                <div class="section-heading">
+                    <p class="eyebrow">Get Started</p>
+                    <h2>快速开始</h2>
+                    <p>只浏览教学网站不需要后端服务；完整运行 QFO 主项目时，需要 Python、Node.js 和数据源 Token。</p>
                 </div>
-            </section>
-
-            <section id="data" class="content-section">
-                <header class="section-heading">
-                    <div>
-                        <span class="eyebrow">Module 01</span>
-                        <h2 class="section-title">数据中台：量化研究的地基</h2>
-                    </div>
-                    <span class="module-tag">Tushare / AkShare / BaoStock</span>
-                </header>
-
-                <div class="lesson-layout">
-                    <div class="lesson-main">
-                        <div class="section-card">
-                            <h3>这一模块要解决什么</h3>
-                            <p>量化研究的第一性原理很简单：没有稳定数据，就没有可信回测。QFO 的数据中台负责把多源金融数据同步到本地仓库，减少重复请求，并为后续选股、因子、回测提供统一入口。</p>
-                        </div>
-                        <div class="screenshot-card">
-                            <img src="assets/frames/scene_04_last.webp" alt="数据中台同步界面" loading="lazy" decoding="async">
-                        </div>
-                        <div class="tutorial-card">
-                            <h3>操作路径</h3>
-                            <ol class="stark-list">
-                                <li>在设置里填入 Tushare Token。</li>
-                                <li>选择同步范围：A 股行情与因子、ETF、可转债、财务数据、行业指数。</li>
-                                <li>执行一键全量同步，等待本地仓库更新完成。</li>
-                                <li>确认顶部统计卡：股票数、ETF 数、可转债数量和行情更新时间。</li>
-                            </ol>
-                        </div>
-                    </div>
-                    <aside class="lesson-side">
-                        <div class="side-card"><h4>关键文件</h4><code>backend/routers/data_center.py</code><code>backend/jobs/data_sync_service.py</code><code>backend/data_sources/</code></div>
-                        <div class="side-card"><h4>学习重点</h4><p>多源降级、增量同步、数据落库、任务状态推送。</p></div>
-                    </aside>
-                </div>
-            </section>
-
-            <section id="screener" class="content-section">
-                <header class="section-heading">
-                    <div>
-                        <span class="eyebrow">Module 02</span>
-                        <h2 class="section-title">智能选股：股票、ETF、可转债统一筛选</h2>
-                    </div>
-                    <span class="module-tag">Stock / ETF / Convertible Bond</span>
-                </header>
-
-                <div class="asset-tabs">
-                    <article>
-                        <img src="assets/frames/scene_05_first.webp" alt="股票智能选股界面" loading="lazy" decoding="async">
-                        <h3>股票筛选</h3>
-                        <p>关注市场广度、主力资金、行业强度、个股强弱榜，把全市场缩小成可研究标的池。</p>
+                <div class="steps">
+                    <article class="step">
+                        <span>1</span>
+                        <h3>打开教学网站</h3>
+                        <p>直接访问在线站点，先理解每个模块解决什么问题。</p>
+                        <a href="https://qfo-website-yyy18337s-projects.vercel.app/" target="_blank" rel="noopener noreferrer">在线访问</a>
                     </article>
-                    <article>
-                        <img src="assets/frames/scene_05_last.webp" alt="ETF 筛选界面" loading="lazy" decoding="async">
-                        <h3>ETF 筛选</h3>
-                        <p>按商品、跨境、REITs、行业、宽基、主题等分类观察热度和涨跌排行。</p>
+                    <article class="step">
+                        <span>2</span>
+                        <h3>下载主项目</h3>
+                        <p>进入 GitHub 主仓库，按 README 运行首次启动脚本。</p>
+                        <a href="https://github.com/yeh2017/QFO-Quant-Platform" target="_blank" rel="noopener noreferrer">QFO-Quant-Platform</a>
                     </article>
-                    <article>
-                        <img src="assets/frames/scene_03_last.webp" alt="可转债数据覆盖" loading="lazy" decoding="async">
-                        <h3>可转债覆盖</h3>
-                        <p>从数据中台同步可转债基础数据，为双低、溢价率和轮动策略提供数据基础。</p>
+                    <article class="step">
+                        <span>3</span>
+                        <h3>配置数据源</h3>
+                        <p>在设置页填写 Tushare Token，按需配置新闻、LLM 和推送渠道。</p>
                     </article>
                 </div>
-
-                <div class="tutorial-card">
-                    <h3>从筛选到研究的流程</h3>
-                    <div class="flow-row">
-                        <span>选择资产类型</span><span>观察市场状态</span><span>筛出候选标的</span><span>进入因子诊断</span><span>进入回测验证</span>
-                    </div>
-                </div>
-
-                <div class="prompt-box">
-                    <div class="prompt-header">
-                        <span class="prompt-title">模块提示词</span>
-                        <button class="btn-copy-prompt">复制提示词</button>
-                    </div>
-                    <p class="prompt-content">请基于 QFO 的智能选股模块，解释股票、ETF、可转债三类资产的筛选逻辑差异，并给出从市场热度、行业轮动、因子信号到回测验证的完整教学路径。</p>
+                <div class="code-block">
+                    <button class="copy-button" type="button">复制</button>
+                    <pre><code>git clone https://github.com/yeh2017/QFO-Quant-Platform.git
+cd QFO-Quant-Platform
+run_first_time.bat</code></pre>
                 </div>
             </section>
 
-            <section id="factor" class="content-section">
-                <header class="section-heading">
-                    <div>
-                        <span class="eyebrow">Module 03</span>
-                        <h2 class="section-title">因子模块：给机会一个可解释理由</h2>
-                    </div>
-                    <span class="module-tag">10 Factor System</span>
-                </header>
+            <section class="section" id="workflow">
+                <div class="section-heading">
+                    <p class="eyebrow">Workflow</p>
+                    <h2>推荐学习路径</h2>
+                </div>
+                <ol class="timeline">
+                    <li><strong>设置与启动</strong><span>先确认 Python、Node.js、Tushare Token 和可选 API Key。</span></li>
+                    <li><strong>数据中台</strong><span>同步 A 股、ETF、可转债和财务等基础数据，建立本地数据底座。</span></li>
+                    <li><strong>智能选股与因子</strong><span>用估值、成长、质量、动量、资金和新闻情绪筛选候选标的。</span></li>
+                    <li><strong>策略回测</strong><span>把研究假设放进历史数据中验证，观察收益、回撤和胜率。</span></li>
+                    <li><strong>组合风控</strong><span>用最大夏普、最小方差、风险平价和风险指标约束波动。</span></li>
+                    <li><strong>新闻事件</strong><span>通过 LLM 情绪分析和事件识别，把消息面纳入复盘和策略验证。</span></li>
+                </ol>
+            </section>
 
-                <div class="lesson-layout">
-                    <div class="lesson-main">
-                        <div class="screenshot-card">
-                            <img src="assets/frames/scene_06_last.webp" alt="因子深度诊断界面" loading="lazy" decoding="async">
-                        </div>
-                        <div class="section-card">
-                            <h3>核心概念</h3>
-                            <p>因子的本质是把股票特征变成可比较的数字。QFO 使用价值、质量、动量、规模、低波、成长、红利、集中度、应计、反转等维度，让选股结果有可复盘依据。</p>
-                        </div>
-                        <div class="inner-tab-selector">
-                            <button class="inner-tab-btn active" data-tab="concept-factor">概念</button>
-                            <button class="inner-tab-btn" data-tab="program-factor">代码入口</button>
-                        </div>
-                        <div class="inner-tab-content active" id="concept-factor">
-                            <div class="concept-text">
-                                <p><strong>去极值：</strong>降低异常值对横截面排名的影响。</p>
-                                <p><strong>标准化：</strong>把不同量纲的指标转成可加权比较的分数。</p>
-                                <p><strong>加权合成：</strong>把多个因子组合成最终排序信号。</p>
-                            </div>
-                        </div>
-                        <div class="inner-tab-content" id="program-factor">
-                            <div class="code-container">
-                                <div class="code-header-bar"><span class="code-file-path">backend/services/factors/calculator.py</span><button class="btn-copy">复制代码</button></div>
-                                <pre><code>def normalize_factor(series):
-    clean = winsorize_by_mad(series)
-    return (clean - clean.mean()) / clean.std()
-
-def score_factors(factors, weights):
-    return sum(factors[name] * weight for name, weight in weights.items())</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                    <aside class="lesson-side">
-                        <div class="side-card"><h4>关键文件</h4><code>backend/services/factors/</code><code>backend/routers/factors.py</code><code>frontend/src/components/Factor/</code></div>
-                        <div class="side-card"><h4>学习重点</h4><p>去极值、标准化、横截面排名、因子 IC、分层回测。</p></div>
-                    </aside>
+            <section class="section" id="modules">
+                <div class="section-heading">
+                    <p class="eyebrow">Features</p>
+                    <h2>功能模块</h2>
+                </div>
+                <div class="feature-list">
+                    <article><h3>📊 数据中台</h3><p>Tushare Pro + AkShare + BaoStock 三源降级，覆盖 A 股、ETF、可转债、财务数据、资金流向、融资融券、行业指数和事件数据。</p></article>
+                    <article><h3>🔍 智能选股</h3><p>支持估值、成长、盈利、资金、行业轮动、事件驱动、技术趋势和新闻情绪等多条件筛选。</p></article>
+                    <article><h3>🧠 因子模块</h3><p>覆盖价值、质量、动量、规模、低波、成长、红利、筹码集中等因子，支持综合评分和因子诊断。</p></article>
+                    <article><h3>⚡ 策略回测</h3><p>内置多因子、MACD/RSI、布林带、海龟、网格、放量突破、ETF 动量和事件驱动等策略。</p></article>
+                    <article><h3>🎯 组合风控</h3><p>支持最大夏普、最小方差、风险平价和等权配置，结合 VaR、CVaR、最大回撤、Beta、Sortino 等指标。</p></article>
+                    <article><h3>📰 新闻中心</h3><p>聚合多源新闻，支持 LLM 情绪分析、事件识别、事件回测、自动抓取和摘要推送。</p></article>
                 </div>
             </section>
 
-            <section id="backtest" class="content-section">
-                <header class="section-heading">
-                    <div>
-                        <span class="eyebrow">Module 04</span>
-                        <h2 class="section-title">策略回测：把想法放进历史里验证</h2>
-                    </div>
-                    <span class="module-tag">10+ Strategy Engines</span>
-                </header>
-
-                <div class="lesson-layout">
-                    <div class="lesson-main">
-                        <div class="screenshot-card">
-                            <img src="assets/frames/scene_09_last.webp" alt="策略回测配置界面" loading="lazy" decoding="async">
-                        </div>
-                        <div class="section-card">
-                            <h3>回测不是预测，是排除错觉</h3>
-                            <p>一个策略想法在脑中很容易成立，但只有经过历史数据、交易成本、调仓周期和标的来源约束后，才知道它是否有继续研究的价值。</p>
-                        </div>
-                        <div class="flow-row">
-                            <span>选择策略</span><span>设置参数</span><span>选择标的来源</span><span>运行回测</span><span>查看风险和净值</span>
-                        </div>
-                    </div>
-                    <aside class="lesson-side">
-                        <div class="side-card"><h4>策略类型</h4><p>多因子、MACD、布林带、海龟、网格、ETF 动量、事件驱动。</p></div>
-                        <div class="side-card"><h4>关键文件</h4><code>backend/services/strategies/</code><code>backend/routers/backtest.py</code><code>frontend/src/components/StrategyBacktest/</code></div>
-                    </aside>
+            <section class="section" id="preview">
+                <div class="section-heading">
+                    <p class="eyebrow">Preview</p>
+                    <h2>产品预览</h2>
+                    <p>以下截图来自 QFO 主项目界面，用于快速了解实际操作页面。</p>
+                </div>
+                <div class="preview-grid">
+                    <figure>
+                        <img src="assets/frames/scene_04_last.webp" alt="数据中台">
+                        <figcaption>数据中台：本地数据同步与数据范围管理</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/frames/scene_05_first.webp" alt="智能选股">
+                        <figcaption>智能选股：股票、ETF、可转债统一筛选</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/frames/scene_09_last.webp" alt="策略回测">
+                        <figcaption>策略回测：策略参数、标的来源和回测区间</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/frames/scene_07_last.webp" alt="新闻中心">
+                        <figcaption>新闻中心：新闻聚合、情绪分析和摘要推送</figcaption>
+                    </figure>
                 </div>
             </section>
 
-            <section id="portfolio" class="content-section">
-                <header class="section-heading">
-                    <div>
-                        <span class="eyebrow">Module 05</span>
-                        <h2 class="section-title">组合优化与风险管理：收益之外先看风险</h2>
+            <section class="section split" id="config">
+                <div>
+                    <div class="section-heading">
+                        <p class="eyebrow">Configuration</p>
+                        <h2>配置说明</h2>
                     </div>
-                    <span class="module-tag">Portfolio / Risk</span>
-                </header>
-
-                <div class="module-grid compact">
-                    <article class="module-card"><span>MV</span><h3>最小方差</h3><p>优先降低组合波动。</p></article>
-                    <article class="module-card"><span>MS</span><h3>最大夏普</h3><p>在风险约束下寻找更高风险收益比。</p></article>
-                    <article class="module-card"><span>RP</span><h3>风险平价</h3><p>让不同资产贡献更均衡的风险。</p></article>
-                    <article class="module-card"><span>EQ</span><h3>等权组合</h3><p>简单、透明、适合作为基准。</p></article>
+                    <table>
+                        <thead><tr><th>配置项</th><th>用途</th></tr></thead>
+                        <tbody>
+                            <tr><td>TUSHARE_TOKEN</td><td>主力数据源 Token，用于行情、财务和基础数据同步。</td></tr>
+                            <tr><td>TAVILY_API_KEY</td><td>可选，增强新闻搜索和外部信息检索。</td></tr>
+                            <tr><td>LLM_*_KEY</td><td>可选，用于新闻情绪、摘要和研报理解。</td></tr>
+                            <tr><td>TELEGRAM / WECHAT</td><td>可选，用于新闻摘要和高分事件推送。</td></tr>
+                        </tbody>
+                    </table>
                 </div>
+                <aside class="note">
+                    <h3>配置原则</h3>
+                    <p>敏感配置只保存在本地环境文件中，不应提交到 GitHub。教学网站只展示使用路径，不保存任何 Token 或 API Key。</p>
+                </aside>
+            </section>
 
-                <div class="section-card">
-                    <h3>风险指标要看什么</h3>
-                    <div class="learning-path">
-                        <div><strong>最大回撤</strong><span>策略最难熬的亏损区间。</span></div>
-                        <div><strong>VaR / CVaR</strong><span>尾部亏损风险估计。</span></div>
-                        <div><strong>Beta</strong><span>相对沪深 300 的系统性风险。</span></div>
-                        <div><strong>Sortino</strong><span>只惩罚下行波动的收益质量。</span></div>
+            <section class="section" id="sandbox">
+                <div class="section-heading">
+                    <p class="eyebrow">Practice</p>
+                    <h2>在线实战沙盒</h2>
+                    <p>沙盒用于教学演示，帮助理解回测指标之间的关系，不代表真实交易结果。</p>
+                </div>
+                <div class="sandbox">
+                    <div class="sandbox-controls">
+                        <label>初始资金 <input id="capital" type="range" min="10" max="200" value="100"></label>
+                        <label>风险偏好 <input id="risk" type="range" min="1" max="10" value="5"></label>
+                        <label>因子权重 <input id="factor" type="range" min="1" max="10" value="6"></label>
+                    </div>
+                    <div class="sandbox-result">
+                        <div><span>模拟收益</span><strong id="returnMetric">18.4%</strong></div>
+                        <div><span>最大回撤</span><strong id="drawdownMetric">7.2%</strong></div>
+                        <div><span>夏普比率</span><strong id="sharpeMetric">1.42</strong></div>
                     </div>
                 </div>
             </section>
 
-            <section id="visual" class="content-section">
-                <header class="section-heading">
-                    <div>
-                        <span class="eyebrow">Module 06</span>
-                        <h2 class="section-title">可视化分析：让结论落到图上</h2>
-                    </div>
-                    <span class="module-tag">K Line / Indicators</span>
-                </header>
-
-                <div class="lesson-layout">
-                    <div class="lesson-main">
-                        <div class="screenshot-card">
-                            <img src="assets/frames/scene_16_last.webp" alt="可视化分析界面" loading="lazy" decoding="async">
-                        </div>
-                        <div class="section-card">
-                            <h3>图表不是装饰，是验证工具</h3>
-                            <p>K 线、均线、MACD、RSI、KDJ、支撑压力和资金流向可以帮助你判断：因子筛出来的标的，是否也有合理的价格结构。</p>
-                        </div>
-                    </div>
-                    <aside class="lesson-side">
-                        <div class="side-card"><h4>关键文件</h4><code>frontend/src/components/Visual/</code><code>frontend/src/components/Charts/</code></div>
-                        <div class="side-card"><h4>学习重点</h4><p>不要用图表替代回测；图表用于解释、复盘和辅助过滤。</p></div>
-                    </aside>
+            <section class="section" id="faq">
+                <div class="section-heading">
+                    <p class="eyebrow">FAQ</p>
+                    <h2>常见问题</h2>
                 </div>
+                <details open>
+                    <summary>只看教学网站需要安装环境吗？</summary>
+                    <p>不需要。教学网站是静态页面，浏览器打开即可。完整运行主项目时才需要 Python、Node.js 和数据源 Token。</p>
+                </details>
+                <details>
+                    <summary>为什么首次同步数据较慢？</summary>
+                    <p>首次同步会拉取较多历史数据，并且外部数据源存在限流。后续会优先读取本地 SQLite，速度会更稳定。</p>
+                </details>
+                <details>
+                    <summary>新闻和推送为什么没有结果？</summary>
+                    <p>新闻搜索、LLM 摘要和推送通知依赖可选 API Key 或 Webhook，需要先在主项目设置页配置。</p>
+                </details>
             </section>
 
-            <section id="news" class="content-section">
-                <header class="section-heading">
-                    <div>
-                        <span class="eyebrow">Module 07</span>
-                        <h2 class="section-title">新闻中心：LLM 把新闻转成可研究信号</h2>
-                    </div>
-                    <span class="module-tag">News / LLM / Event Backtest</span>
-                </header>
-
-                <div class="lesson-layout">
-                    <div class="lesson-main">
-                        <div class="screenshot-card">
-                            <img src="assets/frames/scene_07_last.webp" alt="新闻中心界面" loading="lazy" decoding="async">
-                        </div>
-                        <div class="section-card">
-                            <h3>LLM 是新闻模块的核心</h3>
-                            <p>新闻模块不是简单聚合新闻，而是用 LLM 对新闻进行理解、去噪、归因和情绪判断：识别事件主体，关联股票，判断影响方向与强度，再把结果交给事件统计和回测验证。</p>
-                        </div>
-                        <div class="flow-row">
-                            <span>新闻抓取</span><span>LLM 理解</span><span>情绪评分</span><span>关联股票</span><span>事件回测</span>
-                        </div>
-                    </div>
-                    <aside class="lesson-side">
-                        <div class="side-card"><h4>关键文件</h4><code>backend/services/news/</code><code>backend/services/news/sentiment_llm.py</code><code>backend/routers/news.py</code><code>frontend/src/components/News/</code></div>
-                        <div class="side-card"><h4>学习重点</h4><p>LLM 是新闻模块的核心处理层，负责把非结构化新闻转成可排序、可关联、可验证的结构化信号。</p></div>
-                    </aside>
-                </div>
-            </section>
-
-            <section id="practice" class="content-section">
-                <header class="section-heading">
-                    <div>
-                        <span class="eyebrow">Practice</span>
-                        <h2 class="section-title">在线策略实战沙盒</h2>
-                    </div>
-                    <span class="module-tag">Browser Simulation</span>
-                </header>
-
-                <div class="section-card">
-                    <p>这个沙盒用于教学演示：你可以调节初始资金、策略类型和因子权重，观察净值曲线、收益、夏普和回撤如何变化。它不是正式交易结果，只用于建立回测指标直觉。</p>
-                </div>
-
-                <div class="sandbox-grid">
-                    <div class="control-panel">
-                        <h3 class="panel-title">参数配置</h3>
-                        <div class="control-group">
-                            <label for="initial-cash">初始资金</label>
-                            <input type="number" id="initial-cash" value="100000" min="10000" step="10000" class="stark-input">
-                        </div>
-                        <div class="control-group">
-                            <label for="strategy-type">策略类型</label>
-                            <select id="strategy-type" class="stark-select">
-                                <option value="multi-factor">十因子综合评分策略</option>
-                                <option value="macd-momentum">MACD 动量趋势追踪策略</option>
-                                <option value="mean-reversion">均值回归估值套利策略</option>
-                            </select>
-                        </div>
-                        <div class="control-group factor-sliders">
-                            <div class="slider-header"><span>动量因子权重</span><span id="weight-momentum-val" class="mono-label">50%</span></div>
-                            <input type="range" id="weight-momentum" min="0" max="100" value="50" class="stark-slider">
-                        </div>
-                        <div class="control-group factor-sliders">
-                            <div class="slider-header"><span>价值因子权重</span><span id="weight-value-val" class="mono-label">50%</span></div>
-                            <input type="range" id="weight-value" min="0" max="100" value="50" class="stark-slider">
-                        </div>
-                        <div class="control-group">
-                            <label for="market-period">回测区间</label>
-                            <select id="market-period" class="stark-select">
-                                <option value="bull-market">慢牛行情</option>
-                                <option value="bear-market">单边下行</option>
-                                <option value="volatile-market">宽幅震荡</option>
-                            </select>
-                        </div>
-                        <button id="btn-run-backtest" class="btn-primary">开始回测模拟</button>
-                    </div>
-
-                    <div class="results-panel">
-                        <h3 class="panel-title">绩效报告</h3>
-                        <div class="metrics-grid">
-                            <div class="metric-card"><div class="metric-label">最终总资产</div><div class="metric-value" id="metric-nav">¥100,000</div></div>
-                            <div class="metric-card"><div class="metric-label">策略累计收益</div><div class="metric-value" id="metric-return">0.00%</div></div>
-                            <div class="metric-card"><div class="metric-label">基准累计收益</div><div class="metric-value" id="metric-bench">0.00%</div></div>
-                            <div class="metric-card"><div class="metric-label">年化夏普</div><div class="metric-value" id="metric-sharpe">0.00</div></div>
-                            <div class="metric-card"><div class="metric-label">最大回撤</div><div class="metric-value" id="metric-drawdown">0.00%</div></div>
-                            <div class="metric-card"><div class="metric-label">交易次数</div><div class="metric-value" id="metric-trades">0 次</div></div>
-                        </div>
-                        <div class="chart-wrapper">
-                            <canvas id="backtest-chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-card">
-                    <h3>本地运行方式</h3>
-                    <ol class="stark-list">
-                        <li>进入项目的 <code>backend</code> 目录，运行 <code>python main.py</code> 启动后端。</li>
-                        <li>进入项目的 <code>frontend</code> 目录，按需安装依赖后运行 <code>npm run dev:frontend</code>。</li>
-                        <li>访问主应用：<code>http://localhost:5173</code>。</li>
-                    </ol>
-                </div>
+            <section class="section warning" id="notice">
+                <h2>免责声明</h2>
+                <p>QFO 及本教学网站仅用于量化研究、策略验证和编程学习，不构成任何投资建议、交易建议或收益承诺。历史回测结果不代表未来表现，使用者应自行判断数据质量、策略风险和交易后果。</p>
             </section>
         </main>
     </div>
 
-    <div id="toast" class="toast-hidden" role="status" aria-live="polite">
-        <span>内容已复制到剪贴板</span>
-    </div>
-
+    <div class="toast" id="toast" role="status" aria-live="polite">已复制</div>
     <script src="app.js"></script>
 </body>
 </html>
