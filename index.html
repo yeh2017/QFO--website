@@ -218,27 +218,29 @@ run_first_time.bat</code></pre>
                 </div>
             </section>
 
-            <section class="section split" id="config">
-                <div>
-                    <div class="section-heading">
-                        <p class="eyebrow">Configuration</p>
-                        <h2>配置说明</h2>
-                    </div>
-                    <table>
-                        <thead><tr><th>配置项</th><th>用途</th></tr></thead>
-                        <tbody>
-                            <tr><td>TUSHARE_TOKEN</td><td>主力数据源 Token，用于行情、财务和基础数据同步。</td></tr>
-                            <tr><td>TAVILY_API_KEY</td><td>可选，增强新闻搜索和外部信息检索。</td></tr>
-                            <tr><td>LLM_*_KEY</td><td>可选，用于新闻情绪、摘要和研报理解。</td></tr>
-                            <tr><td>TELEGRAM / WECHAT</td><td>可选，用于新闻摘要和高分事件推送。</td></tr>
-                        </tbody>
-                    </table>
+            <section class="section" id="config">
+                <div class="section-heading">
+                    <p class="eyebrow">Configuration</p>
+                    <h2>配置说明</h2>
                 </div>
-                <aside class="note">
-                    <h3>配置原则</h3>
-                    <p>敏感配置只保存在本地环境文件中，不应提交到 GitHub。教学网站只展示使用路径，不保存任何 Token 或 API Key。</p>
-                    <p>第三方 API 需使用者自行提供账户和密钥，相关费用需自行在第三方平台充值或购买，与开发者无关；本项目仅提供 API 对接的技术规范。</p>
-                </aside>
+                <div class="config-layout">
+                    <div>
+                        <table>
+                            <thead><tr><th>配置项</th><th>用途</th></tr></thead>
+                            <tbody>
+                                <tr><td>TUSHARE_TOKEN</td><td>主力数据源 Token，用于行情、财务和基础数据同步。</td></tr>
+                                <tr><td>TAVILY_API_KEY</td><td>可选，增强新闻搜索和外部信息检索。</td></tr>
+                                <tr><td>LLM_*_KEY</td><td>可选，用于新闻情绪、摘要和研报理解。</td></tr>
+                                <tr><td>TELEGRAM / WECHAT</td><td>可选，用于新闻摘要和高分事件推送。</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <aside class="note">
+                        <h3>配置原则</h3>
+                        <p>敏感配置只保存在本地环境文件中，不应提交到 GitHub。教学网站只展示使用路径，不保存任何 Token 或 API Key。</p>
+                        <p>第三方 API 需使用者自行提供账户和密钥，相关费用需自行在第三方平台充值或购买，与开发者无关；本项目仅提供 API 对接的技术规范。</p>
+                    </aside>
+                </div>
             </section>
 
             <section class="section" id="faq">

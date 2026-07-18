@@ -480,6 +480,13 @@ figcaption {
     gap: 24px;
 }
 
+.config-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 24px;
+    align-items: start;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -637,6 +644,7 @@ details p {
 
     .hero,
     .split,
+    .config-layout,
     .sandbox {
         grid-template-columns: 1fr;
     }
