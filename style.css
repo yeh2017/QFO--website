@@ -484,7 +484,11 @@ figcaption {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 320px;
     gap: 24px;
-    align-items: start;
+    align-items: stretch;
+}
+
+.config-layout .note {
+    height: 100%;
 }
 
 table {
