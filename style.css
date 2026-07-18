@@ -252,7 +252,7 @@ img {
     background: #f8fafc;
 }
 
-.notice-inline strong {
+.notice-inline > strong {
     display: block;
     margin-bottom: 6px;
 }
