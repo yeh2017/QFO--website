@@ -262,6 +262,16 @@ img {
     color: var(--muted);
 }
 
+.notice-inline ol {
+    margin: 8px 0 10px;
+    padding-left: 20px;
+    color: var(--muted);
+}
+
+.notice-inline li + li {
+    margin-top: 4px;
+}
+
 .steps,
 .feature-list,
 .preview-grid,
