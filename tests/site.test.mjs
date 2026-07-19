@@ -61,3 +61,8 @@ test('ships crawler metadata files', () => {
   assert.match(robots, /Sitemap: https:\/\/www\.qfo-quant-platform\.com\/sitemap\.xml/);
   assert.match(sitemap, /<loc>https:\/\/www\.qfo-quant-platform\.com\/<\/loc>/);
 });
+
+test('loads Vercel Web Analytics', () => {
+  assert.match(html, /window\.va\s*=\s*window\.va\s*\|\|\s*function/);
+  assert.match(html, /<script defer src="\/_vercel\/insights\/script\.js"><\/script>/);
+});
