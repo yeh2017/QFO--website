@@ -58,32 +58,34 @@ img {
 .brand {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     color: var(--ink);
     text-decoration: none;
 }
 
 .brand-mark {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: grid;
     place-items: center;
     border-radius: var(--radius);
-    background: var(--ink);
+    background: linear-gradient(135deg, var(--accent), #14b8a6);
     color: #fff;
     font-weight: 800;
-    font-size: 13px;
-}
-
-.brand strong,
-.brand small {
-    display: block;
-    line-height: 1.25;
-}
-
-.brand small {
-    color: var(--muted);
     font-size: 12px;
+    line-height: 1;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
+}
+
+.brand-name,
+.brand strong {
+    display: block;
+    line-height: 1;
+}
+
+.brand strong {
+    font-size: 17px;
+    white-space: nowrap;
 }
 
 .top-nav {
