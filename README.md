@@ -18,7 +18,7 @@ QFO Quant Platform Website 是 [QFO量化回测平台](https://github.com/yeh201
 
 > **注意**
 > - 请勿直接在压缩包内运行。
-> - 需要使用 Python、Node.js 运行环境。
+> - 需要使用 [Python（下载链接）](https://www.python.org/downloads/windows/)、[Node.js（下载链接）](https://nodejs.org/en/download) 运行环境。
 
 ## 本地预览
 
