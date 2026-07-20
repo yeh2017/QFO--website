@@ -2,7 +2,49 @@ document.addEventListener("DOMContentLoaded", () => {
     initActiveNav();
     initCopyButtons();
     initSandbox();
+    initLatestRelease();
 });
+
+async function initLatestRelease() {
+    const endpoint = "https://api.github.com/repos/yeh2017/QFO-Quant-Platform/releases/latest";
+
+    try {
+        const response = await fetch(endpoint, {
+            headers: { Accept: "application/vnd.github+json" },
+        });
+        if (!response.ok) return;
+
+        const release = await response.json();
+        if (!release.tag_name || !release.zipball_url || !release.html_url) return;
+
+        document.querySelectorAll("[data-release-download]").forEach((link) => {
+            link.href = release.zipball_url;
+        });
+        document.querySelectorAll("[data-release-page]").forEach((link) => {
+            link.href = release.html_url;
+        });
+        document.querySelectorAll("[data-release-tag]").forEach((label) => {
+            label.textContent = release.tag_name;
+        });
+
+        const publishedDate = release.published_at?.slice(0, 10);
+        document.querySelectorAll("[data-release-date]").forEach((time) => {
+            if (!publishedDate) return;
+            time.dateTime = publishedDate;
+            time.textContent = publishedDate;
+        });
+
+        const structuredData = document.getElementById("software-data");
+        if (structuredData) {
+            const data = JSON.parse(structuredData.textContent);
+            data.softwareVersion = release.tag_name.replace(/^v/, "");
+            data.downloadUrl = release.zipball_url;
+            structuredData.textContent = JSON.stringify(data);
+        }
+    } catch {
+        // Keep the stable release links already rendered in the page.
+    }
+}
 
 function initActiveNav() {
     const links = Array.from(document.querySelectorAll(".side-nav a"));

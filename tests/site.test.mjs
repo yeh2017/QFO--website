@@ -4,6 +4,7 @@ import test from 'node:test';
 
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../style.css', import.meta.url), 'utf8');
+const app = readFileSync(new URL('../app.js', import.meta.url), 'utf8');
 
 test('uses current product positioning and social metadata', () => {
   assert.match(html, /<title>QFO量化回测平台 \| A股量化研究与回测工具<\/title>/);
@@ -12,7 +13,7 @@ test('uses current product positioning and social metadata', () => {
   assert.match(html, /name="twitter:card"/);
   assert.match(html, /type="application\/ld\+json"/);
   const structuredData = JSON.parse(
-    html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] || '',
+    html.match(/<script[^>]+type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] || '',
   );
   assert.equal(structuredData.softwareVersion, '1.0.0');
   assert.match(structuredData.downloadUrl, /refs\/tags\/v1\.0\.0\.zip/);
@@ -21,7 +22,7 @@ test('uses current product positioning and social metadata', () => {
 
 test('offers a stable release download', () => {
   assert.match(html, /archive\/refs\/tags\/v1\.0\.0\.zip/);
-  assert.match(html, /稳定版本 v1\.0\.0/);
+  assert.match(html, /稳定版本\s*<span[^>]+>v1\.0\.0<\/span>/);
 });
 
 test('shows at least six real product previews', () => {
@@ -70,4 +71,28 @@ test('loads Vercel Web Analytics', () => {
 test('loads Vercel Speed Insights', () => {
   assert.match(html, /window\.si\s*=\s*window\.si\s*\|\|\s*function/);
   assert.match(html, /<script defer src="\/_vercel\/speed-insights\/script\.js"><\/script>/);
+});
+
+test('updates download links from the latest GitHub release', () => {
+  assert.match(html, /data-release-download/);
+  assert.match(html, /data-release-tag/);
+  assert.match(html, /data-release-date/);
+  assert.match(app, /api\.github\.com\/repos\/yeh2017\/QFO-Quant-Platform\/releases\/latest/);
+  assert.match(app, /zipball_url/);
+  assert.match(app, /initLatestRelease\(\)/);
+});
+
+test('uses a dedicated social sharing image', () => {
+  assert.match(html, /property="og:image" content="https:\/\/www\.qfo-quant-platform\.com\/assets\/qfo-share\.webp"/);
+  assert.match(html, /property="og:image:width" content="1200"/);
+  assert.match(html, /property="og:image:height" content="630"/);
+  assert.match(html, /name="twitter:image" content="https:\/\/www\.qfo-quant-platform\.com\/assets\/qfo-share\.webp"/);
+});
+
+test('ships a concise branded 404 page', () => {
+  const notFound = readFileSync(new URL('../404.html', import.meta.url), 'utf8');
+  assert.match(notFound, /<title>页面未找到 \| QFO量化回测平台<\/title>/);
+  assert.match(notFound, /name="robots" content="noindex, follow"/);
+  assert.match(notFound, /href="\/"[^>]*>返回首页<\/a>/);
+  assert.match(notFound, /href="https:\/\/github\.com\/yeh2017\/QFO-Quant-Platform"/);
 });
