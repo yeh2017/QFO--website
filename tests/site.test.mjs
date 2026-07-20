@@ -5,6 +5,7 @@ import test from 'node:test';
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../style.css', import.meta.url), 'utf8');
 const app = readFileSync(new URL('../app.js', import.meta.url), 'utf8');
+const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
 
 test('uses current product positioning and social metadata', () => {
   assert.match(html, /<title>QFO量化回测平台 \| A股量化研究与回测工具<\/title>/);
@@ -15,14 +16,15 @@ test('uses current product positioning and social metadata', () => {
   const structuredData = JSON.parse(
     html.match(/<script[^>]+type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] || '',
   );
-  assert.equal(structuredData.softwareVersion, '1.0.0');
-  assert.match(structuredData.downloadUrl, /refs\/tags\/v1\.0\.0\.zip/);
+  assert.equal(structuredData.softwareVersion, 'latest');
+  assert.match(structuredData.downloadUrl, /releases\/latest\/download\/QFO-Quant-Platform\.zip/);
   assert.doesNotMatch(html, /教学网站|组合风控|智能选股与因子/);
 });
 
 test('offers a stable release download', () => {
-  assert.match(html, /archive\/refs\/tags\/v1\.0\.0\.zip/);
-  assert.match(html, /稳定版本\s*<span[^>]+>v1\.0\.0<\/span>/);
+  assert.match(html, /releases\/latest\/download\/QFO-Quant-Platform\.zip/);
+  assert.doesNotMatch(html, /archive\/refs\/tags\/v1\.0\.0\.zip/);
+  assert.doesNotMatch(html, />v1\.0\.0</);
 });
 
 test('shows at least six real product previews', () => {
@@ -78,8 +80,22 @@ test('updates download links from the latest GitHub release', () => {
   assert.match(html, /data-release-tag/);
   assert.match(html, /data-release-date/);
   assert.match(app, /api\.github\.com\/repos\/yeh2017\/QFO-Quant-Platform\/releases\/latest/);
+  assert.match(app, /QFO-Quant-Platform\.zip/);
+  assert.match(app, /browser_download_url/);
   assert.match(app, /zipball_url/);
   assert.match(app, /initLatestRelease\(\)/);
+});
+
+test('sets baseline security headers on every route', () => {
+  const rule = vercel.headers?.find((entry) => entry.source === '/(.*)');
+  assert.ok(rule, 'missing global Vercel header rule');
+  const headers = Object.fromEntries(rule.headers.map(({ key, value }) => [key, value]));
+  assert.equal(headers['X-Content-Type-Options'], 'nosniff');
+  assert.equal(headers['X-Frame-Options'], 'DENY');
+  assert.equal(headers['Referrer-Policy'], 'strict-origin-when-cross-origin');
+  assert.match(headers['Permissions-Policy'], /camera=\(\)/);
+  assert.match(headers['Content-Security-Policy'], /default-src 'self'/);
+  assert.match(headers['Content-Security-Policy'], /connect-src 'self' https:\/\/api\.github\.com/);
 });
 
 test('uses a dedicated social sharing image', () => {

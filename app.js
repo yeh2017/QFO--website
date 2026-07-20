@@ -17,8 +17,13 @@ async function initLatestRelease() {
         const release = await response.json();
         if (!release.tag_name || !release.zipball_url || !release.html_url) return;
 
+        const releaseAsset = release.assets?.find(
+            (asset) => asset.name === "QFO-Quant-Platform.zip",
+        );
+        const downloadUrl = releaseAsset?.browser_download_url || release.zipball_url;
+
         document.querySelectorAll("[data-release-download]").forEach((link) => {
-            link.href = release.zipball_url;
+            link.href = downloadUrl;
         });
         document.querySelectorAll("[data-release-page]").forEach((link) => {
             link.href = release.html_url;
@@ -38,7 +43,7 @@ async function initLatestRelease() {
         if (structuredData) {
             const data = JSON.parse(structuredData.textContent);
             data.softwareVersion = release.tag_name.replace(/^v/, "");
-            data.downloadUrl = release.zipball_url;
+            data.downloadUrl = downloadUrl;
             structuredData.textContent = JSON.stringify(data);
         }
     } catch {
